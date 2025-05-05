@@ -1,0 +1,69 @@
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Special+Gothic+Expanded+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&family=Rajdhani:wght@300;400;500;600;700&family=Special+Gothic+Expanded+One&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.archivo-font {
+  font-family: "Archivo", sans-serif;
+  font-optical-sizing: auto;
+}
+.rajdhani-font {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 400; /* You can change the weight if needed */
+}
+
+.bodoni-font {
+  font-family: "Bodoni Moda", serif;
+  font-optical-sizing: auto;
+}
+
+/* 3. Special Gothic for your “Portfolio” heading */
+.special-gothic {
+  font-family: "Special Gothic Expanded One", sans-serif;
+  font-weight: 400;
+}
+
+ @layer base{ 
+  :root{
+    --background: 27 27 27;
+    --foreground: 225 225 225;
+    --muted: 115 115 115;
+    --accent: 254 254 91; /*#FEFE5B*/
+  }
+}
+
+@layer utilities {
+.pause{
+  animation-play-state: paused;
+}
+
+.custom-bg {
+  @apply bg-transparent border border-purple-400/30 border-solid backdrop-blur-[6px] shadow-glass-inset
+  hover:shadow-glass-sm transition-shadow duration-300
+}
+}
+
+@keyframes move{
+  0%{
+    transform: translate(0,0);
+  }
+  100%{
+    transform: translate(100px,100px);
+  }
+}
+.perspective {
+  perspective: 1000px;
+}
+
+.transform-style {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+

@@ -29,7 +29,8 @@ export default function Home() {
                 Connect with me!
               </h1>
               <p className="text-center font-light text-base sm:text-lg max-w-2xl text-muted">
-                Across the vast expanse of ideas and creativity, I’m always open to new cosmic connections. Whether you're orbiting with a question, a collaboration, or simply stargazing for inspiration — let’s align our paths and create something truly celestial.
+                Across the vast expanse of ideas and creativity, I am always open to new cosmic connections. Whether you're orbiting with a question, a collaboration, or simply stargazing for inspiration — Let&apos;s align our paths
+                create something truly celestial.
               </p>
             </div>
             <Form />

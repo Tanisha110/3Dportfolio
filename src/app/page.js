@@ -6,11 +6,11 @@ import Navigation from "./components/navigation";
 import NavBar from "./components/navigation/Navbar";
 import Footer from "./components/navigation/Footer";
 import LeftIntroSec from "./components/LeftIntroSec";
-import Starsbg from "./components/Starsbg"; // Import here
+import Starsbg from "./components/Starsbg";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between relative">
+    <main className="flex min-h-screen flex-col items-center justify-between relative overflow-x-hidden">
       {/* ⭐ Stars background */}
       <Starsbg />
 
@@ -19,19 +19,27 @@ export default function Home() {
         src={pkalast}
         alt="background-image"
         fill
-        className="w-full h-full object-cover object-center opacity-100 z-[-20]" // Set lower z-index
+        className="w-full h-full object-cover object-center opacity-100 z-[-20]"
       />
 
       <NavBar />
-      <div className="w-full flex">
-        <LeftIntroSec />
-        <div className="w-1/2 h-screen flex justify-start items-center ml-auto z-[10]">
+
+      {/* 🔀 Responsive Container */}
+      <div className="w-full flex flex-col lg:flex-row items-center justify-between">
+        {/* LeftIntroSec should go full width on mobile, 55% on desktop */}
+        <div className="w-full lg:w-[55%] h-[50vh] lg:h-screen flex items-center justify-center">
+          <LeftIntroSec />
+        </div>
+
+        {/* 3D Model and Navigation – full width on mobile, right half on desktop */}
+        <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen flex flex-col items-center justify-center relative z-[10]">
           <Navigation />
           <RenderModel>
-            <Uranus/>
+            <Uranus />
           </RenderModel>
         </div>
       </div>
+
       <Footer />
     </main>
   );

@@ -9,7 +9,6 @@ const navItems = [
   { icon: <NotebookText className="w-6 h-6" />, label: "Resume", link: "/resume.pdf", newTab: true },
   { icon: <Github className="w-6 h-6" />, label: "GitHub", link: "https://github.com/Tanisha110", newTab: true },
   { icon: <Linkedin className="w-6 h-6" />, label: "LinkedIn", link: "https://www.linkedin.com/in/tanisha-sonkar-19a489289", newTab: true },
-  { icon: <Twitter className="w-6 h-6" />, label: "Twitter", link: "https://twitter.com/yourhandle", newTab: true },
   { icon: <Phone className="w-6 h-6" />, label: "Contact", link: "/contact" },
 ];
 

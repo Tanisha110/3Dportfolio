@@ -13,7 +13,7 @@ const LeftIntroSec = () => {
 
       {/* Description */}
       <p className="text-lg font-normal bodoni-font text-white max-w-lg mb-10">
-        Hi, I am Tanisha Sonkar! An aspiring software engineer committed to creating user-centric applications and contributing to meaningful technical innovations.
+        Hi, I am Tanisha Sonkar! An aspiring software developer committed to creating user-centric applications and contributing to meaningful technical innovations.
       </p>
 
       {/* Buttons */}

@@ -25,35 +25,31 @@ export default function Home() {
       {/* 🔵 Scrollable Content */}
       <div className="relative z-10">
         <NavBar />
-
-        {/* Hero Section */}
-<div className="relative w-full h-screen">
+        <div className="relative w-full h-screen">
   {/* Fullscreen 3D Model */}
   <div className="absolute inset-0">
     <RenderModel>
       <Astronaut />
     </RenderModel>
   </div>
-{/* Centered Text Overlay */}
-<div className="relative w-full h-screen">
-  <div className="absolute w-full  top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-[10%] text-center px-4">
-    <h1 className="font-bold mt-12 text-6xl md:text-8xl text-[#7573a5]">
+
+  {/* Slightly lower Text Overlay */}
+  <div className="absolute w-full top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-0 text-center px-4">
+    <h1 className="font-bold text-5xl md:text-8xl text-[#7573a5]">
       Tanisha Sonkar
     </h1>
-    <p className="mt-3 font-light text-foreground text-lg max-w-2xl mx-auto">
-      An Electrical Engineering sophomore with a growing interest in software development.
+    <p className="mt-4 font-light text-foreground text-lg max-w-2xl mx-auto">
+      An enthusiastic Electrical Engineering sophomore with a passion for software development, actively expanding my skills in web and app development.
     </p>
-    <div className="relative mt-[-3rem]">  {/* Adjust value to shift up the About section */}
-    <AboutDetail />
-  </div>
-  </div>
 
-  {/* About Section with Reduced Gap */}
-  
+    {/* About Section with less top margin */}
+    <div className="mt-6 md:mt-10 w-full">
+      <AboutDetail />
+    </div>
+  </div>
 </div>
 
 
-</div>
         <Footer />
       </div>
     </div>

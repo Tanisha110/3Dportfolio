@@ -33,10 +33,9 @@ export const projectsData = [
   },
   {
     id: 5,
-    name: "RecipeFinder",
-    description: "Discover new recipes",
-    date: "2022-07-12",
-    demoLink: "https://recipefinder.example.com",
+    name: "E-com",
+    description: "website",
+    demoLink: ".",
     imageUrl: p1
   },
 ];
@@ -56,12 +55,6 @@ export const BtnList = [
     label: "LinkedIn",
     link: "https://www.linkedin.com/in/tanisha-sonkar-19a489289",
     icon: "linkedin",
-    newTab: true,
-  },
-  {
-    label: "X",
-    link: "https://www.x.com/code_bucks",
-    icon: "twitter",
     newTab: true,
   },
   {

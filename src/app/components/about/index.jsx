@@ -63,7 +63,7 @@ const AboutDetails = () => {
 
         {/* GitHub Languages */}
         <ItemLayout className="md:col-span-4 !p-0">
-          <Image
+          <img
             className="w-full h-auto"
             src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tanisha110&theme=transparent&hide_border=true&title_color=7573a5&hide=prs,issues&text_color=eeeeee&icon_color=7573a5&text_bold=false"
             alt="tanisha110"
@@ -73,7 +73,7 @@ const AboutDetails = () => {
 
         {/* GitHub Stats */}
         <ItemLayout className="md:col-span-8 !p-0">
-          <Image
+          <img
             className="w-full h-auto"
             src="https://github-readme-stats.vercel.app/api?username=Tanisha110&theme=transparent&hide_border=true&title_color=7573a5&hide=prs,issues&text_color=eeeeee&icon_color=7573a5&text_bold=false"
             alt="tanisha110"
@@ -86,7 +86,7 @@ const AboutDetails = () => {
           <h2 className="text-4xl font-bold text-left capitalize">
             Technical Skills
           </h2>
-          <Image
+          <img
             className="w-full h-auto"
             src="https://skillicons.dev/icons?i=js,html,css,anaconda,bootstrap,c,cpp,java,matlab,nextjs,nodejs,py,react,sklearn,tailwind,threejs,vscode,git,github,pandas,numpy"
             alt="tanisha110 skills"

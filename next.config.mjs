@@ -1,4 +1,18 @@
 /** @type {import('next').NextConfig} */
-const nextConfig = {};
-
-export default nextConfig;
+const nextConfig = {
+    images: {
+      remotePatterns: [
+        {
+          protocol: "https",
+          hostname: "github-readme-stats.vercel.app",
+        },
+        {
+          protocol: "https",
+          hostname: "skillicons.dev",
+        },
+      ],
+    },
+  };
+  
+  module.exports = nextConfig;
+  

@@ -28,15 +28,8 @@ export const projectsData = [
     id: 4,
     name: " 3D Interactive Portfolio Website",
     description: "A visually immersive portfolio built using Next.js and Three.js, combining modern web development with 3D interactivity. The site showcases projects through smooth navigation, responsive design, and a creative user experience that reflects both technical skill and personal style.",
-    demoLink: "https://github.com/Tanisha110",
+    demoLink: "https://tanishasonkarportfolio.vercel.app/",
     imageUrl: p4
-  },
-  {
-    id: 5,
-    name: "E-com",
-    description: "website",
-    demoLink: ".",
-    imageUrl: p1
   },
 ];
 

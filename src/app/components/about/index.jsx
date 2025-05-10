@@ -102,7 +102,7 @@ const AboutDetails = () => {
             - DaVinci Resolve <br />
             - Graphic Design
           </p>
-        </ItemLayout>
+        </ ItemLayout>
       </div>
     </section>
   );

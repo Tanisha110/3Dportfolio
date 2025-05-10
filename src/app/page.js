@@ -33,7 +33,10 @@ export default function Home() {
 
         {/* 3D Model and Navigation – full width on mobile, right half on desktop */}
         <div className="w-full lg:w-1/2 h-[50vh] lg:h-screen flex flex-col items-center justify-center relative z-[10]">
-          <Navigation />
+          <div className="hidden lg:block">
+  <Navigation />
+</div>
+
           <RenderModel>
             <Uranus />
           </RenderModel>

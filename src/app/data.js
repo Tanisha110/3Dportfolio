@@ -41,9 +41,9 @@ export const projectsData = [
   },
   {
     id: 6,
-    name: "FUZZY AUTOCOMPLETE SYSTEM",
-    description: "A dynamic fuzzy autocomplete system with enhanced phrase matching and user-driven suggestions having trie data structure implementation. It leverages fuzzy string matching algorithms to provide accurate and relevant suggestions as users type.The project includes a file upload feature to expand the autocomplete dictionary, ranks suggestions based on frequency and edit distance, and offers pagination for large result sets. ",
-    demoLink: "https://github.com/Tanisha110/Trie_implementation",
+    name: "SENTENCE AUTOCOMPLETION SYSTEM",
+    description: "This project is a dynamic autocomplete system developed as part of a Data Structures and Algorithms (DSA) project. It utilizes a Trie data structure for efficient phrase matching and provides user-driven suggestions. The system supports file uploads to expand the autocomplete dictionary and ranks suggestions based on frequency and recency. It also implements pagination to handle large result sets smoothly, offering fast and relevant completions as users type.",
+    demoLink: "https://github.com/Tanisha110/Sentance_Completion_Dsa_Project",
     imageUrl: p2
   },
 ];

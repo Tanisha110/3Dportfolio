@@ -15,7 +15,7 @@ export const projectsData = [
     id: 2,
     name: " Ink2Pic Website",
     description: "Ink2Pic is a text-to-image conversion web app designed to transform written content into compelling visuals. Built using React.js for the frontend and integrated with a custom image generation backend, it offers a seamless user experience with a clean, gradient-themed UI. The app uses advanced prompt parsing and styling logic to render high-quality images from user input. Developed as a developer portfolio project, Ink2Pic highlights real-world application of frontend/backend integration, responsive design, and dynamic image rendering.",
-    demoLink: "https://github.com/Tanisha110/imagify",
+    demoLink: "https://ink2pic.vercel.app/",
     imageUrl: p5
   },
   {

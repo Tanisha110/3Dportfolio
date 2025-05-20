@@ -22,14 +22,14 @@ export const projectsData = [
     id: 3,
     name: " 3D Interactive Portfolio Website",
     description: "A visually immersive portfolio built using Next.js and Three.js, combining modern web development with 3D interactivity. The site showcases projects through smooth navigation, responsive design, and a creative user experience that reflects both technical skill and personal style.",
-    demoLink: "https://trading-website-eta.vercel.app/",
+    demoLink: "https://tanishasonkarportfolio.vercel.app/",
     imageUrl: p4
   },
   {
     id: 4,
     name: " Trading Website",
     description: "A Expert Training Hub is a responsive, modern web portfolio. It was developed by converting a Figma design into a fully functional interface using React.js for component-based structure and Tailwind CSS for utility-first styling. The site features an interactive carousel, structured content sections, and a polished contact form with integrated icons using Lucide React, ensuring both performance and aesthetic appeal.",
-    demoLink: "https://tanishasonkarportfolio.vercel.app/",
+    demoLink:"https://trading-website-eta.vercel.app/",
     imageUrl: p4
   },
   {

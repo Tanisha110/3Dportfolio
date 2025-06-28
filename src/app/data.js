@@ -3,6 +3,7 @@ import p2 from '../../public/background/p2.png';
 import p3 from '../../public/background/p3.png';
 import p4 from '../../public/background/p4.png';
 import p5 from '../../public/background/p5.png';
+import p8 from '../../public/background/p8.jpg';
 export const projectsData = [
   {
     id: 1,
@@ -30,7 +31,7 @@ export const projectsData = [
     name: " Trading Website",
     description: "A Expert Training Hub is a responsive, modern web portfolio. It was developed by converting a Figma design into a fully functional interface using React.js for component-based structure and Tailwind CSS for utility-first styling. The site features an interactive carousel, structured content sections, and a polished contact form with integrated icons using Lucide React, ensuring both performance and aesthetic appeal.",
     demoLink:"https://trading-website-eta.vercel.app/",
-    imageUrl: p4
+    imageUrl: p8
   },
   {
     id: 5,
@@ -67,7 +68,7 @@ export const BtnList = [
   },
   {
     label: "Resume",
-    link: "/resume.pdf",
+    link: "/Tanisha_resume.pdf",
     icon: "resume",
     newTab: true,
   },

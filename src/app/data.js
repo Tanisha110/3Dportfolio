@@ -4,6 +4,7 @@ import p3 from '../../public/background/p3.png';
 import p4 from '../../public/background/p4.png';
 import p5 from '../../public/background/p5.png';
 import p8 from '../../public/background/p8.jpg';
+import ai from '../../public/background/ai.jpg';
 export const projectsData = [
   {
     id: 1,
@@ -14,34 +15,41 @@ export const projectsData = [
   },
   {
     id: 2,
+    name: " AI Overstock Liquidation Dashboard",
+    description: "(still working)This AI-powered dashboard helps predict and clear overstock in real time using trained machine learning models. Built on Walmart’s M5 Forecasting dataset—spanning over 42,000 SKUs and millions of daily sales records across 10 U.S. states—the system identifies excess inventory before it becomes dead stock. It features dedicated panels for forecasting, smart binning of similar SKUs, and generating hyper-local clearance campaigns tailored to regional demand. The dashboard provides actionable insights to supply chain and retail teams, enabling faster liquidation, reduced markdown losses, and improved sell-through efficiency.",
+    demoLink: "https://github.com/mahi1038/Overstock-Liquidation-",
+    imageUrl: ai
+  },
+  {
+    id: 3,
     name: " Ink2Pic Website",
     description: "Ink2Pic is a text-to-image conversion web app designed to transform written content into compelling visuals. Built using React.js for the frontend and integrated with a custom image generation backend, it offers a seamless user experience with a clean, gradient-themed UI. The app uses advanced prompt parsing and styling logic to render high-quality images from user input. Developed as a developer portfolio project, Ink2Pic highlights real-world application of frontend/backend integration, responsive design, and dynamic image rendering.",
     demoLink: "https://ink2pic.vercel.app/",
     imageUrl: p5
   },
   {
-    id: 3,
+    id: 4,
     name: " 3D Interactive Portfolio Website",
     description: "A visually immersive portfolio built using Next.js and Three.js, combining modern web development with 3D interactivity. The site showcases projects through smooth navigation, responsive design, and a creative user experience that reflects both technical skill and personal style.",
     demoLink: "https://tanishasonkarportfolio.vercel.app/",
     imageUrl: p4
   },
   {
-    id: 4,
+    id: 5,
     name: " Trading Website",
     description: "A Expert Training Hub is a responsive, modern web portfolio. It was developed by converting a Figma design into a fully functional interface using React.js for component-based structure and Tailwind CSS for utility-first styling. The site features an interactive carousel, structured content sections, and a polished contact form with integrated icons using Lucide React, ensuring both performance and aesthetic appeal.",
     demoLink:"https://trading-website-eta.vercel.app/",
     imageUrl: p8
   },
   {
-    id: 5,
+    id: 6,
     name: "Audio Source Separation & Visualization",
     description: "A web-based application that performs Blind Source Separation (BSS) using the FastICA algorithm. Users upload two mixed audio files, and the system separates them into their original source signals. It features audio playback, signal visualizations, and comparison plots. The backend is built with FastAPI and scikit-learn, while an additional Jupyter notebook explores a custom FastICA implementation from scratch for deeper insight.",
     demoLink: "https://github.com/Tanisha110/dc",
     imageUrl: p3
   },
   {
-    id: 6,
+    id: 7,
     name: "SENTENCE AUTOCOMPLETION SYSTEM",
     description: "This project is a dynamic autocomplete system developed as part of a Data Structures and Algorithms (DSA) project. It utilizes a Trie data structure for efficient phrase matching and provides user-driven suggestions. The system supports file uploads to expand the autocomplete dictionary and ranks suggestions based on frequency and recency. It also implements pagination to handle large result sets smoothly, offering fast and relevant completions as users type.",
     demoLink: "https://github.com/Tanisha110/Sentance_Completion_Dsa_Project",

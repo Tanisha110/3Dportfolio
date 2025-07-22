@@ -76,7 +76,7 @@ export const BtnList = [
   },
   {
     label: "Resume",
-    link: "/Tanisha_resume.pdf",
+    link: "/TANISHA_SONKAR_RESUME_SDE.pdf",
     icon: "resume",
     newTab: true,
   },

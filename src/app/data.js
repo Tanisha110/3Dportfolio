@@ -76,7 +76,7 @@ export const BtnList = [
   },
   {
     label: "Resume",
-    link: "/TANISHA_SONKAR_RESUME_SDE.pdf",
+    link: "https://drive.google.com/file/d/1lW0JZUlr1CYIYKpx-x9jOJyPX484w3_N/view?usp=sharing",
     icon: "resume",
     newTab: true,
   },

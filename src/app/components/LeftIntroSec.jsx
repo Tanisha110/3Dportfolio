@@ -4,7 +4,7 @@ import Link from "next/link";
 
 const LeftIntroSec = () => {
   return (
-    <div className="w-full md:w-[55%] h-screen flex flex-col justify-center items-start px-6 md:px-16 z-10">
+    <div className="w-full md:w-[85%] h-screen flex flex-col justify-center items-start px-6 md:px-16 z-10">
       {/* Heading */}
       <h1 className="text-4xl md:text-7xl font-medium uppercase special-gothic text-white mb-4 md:mb-6">
         Portfolio.
@@ -16,7 +16,7 @@ const LeftIntroSec = () => {
         creating user-centric applications and contributing to meaningful
         technical innovations.
       </p>
-
+      
       {/* Buttons */}
       <div className="flex flex-col md:flex-row gap-4 md:gap-6">
         <Link

@@ -1,22 +1,17 @@
-"use client"
-import React from "react";
+"use client";
+
 import { Canvas } from "@react-three/fiber";
 import { Suspense } from "react";
-import clsx from "clsx";
 import { Environment } from "@react-three/drei";
 
-const RenderModel = ({children, className}) => {
-
-    return (
-       <Canvas
-       className={clsx("w-screen h-screen -z-80 relative", className)}
-       >
-         <Suspense fallback={null}>
-            {children}
-         </Suspense>
-         <Environment preset="dawn"/>
-       </Canvas>
-    )
+export default function RenderModel({ children }) {
+  return (
+    <Suspense fallback={null}>
+      <Canvas camera={{ position: [0, 0, 5] }}>
+        {children}
+        <Environment preset="dawn" />
+      </Canvas>
+    </Suspense>
+  );
 }
 
-export default RenderModel

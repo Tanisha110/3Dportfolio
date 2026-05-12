@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { useEffect, useRef, useState, useCallback } from "react";
 import pkalast from "../../../public/background/pkalast.png";
 import NavBar from "../components/navigation/Navbar";
 import Footer from "../components/navigation/Footer";
@@ -7,10 +10,107 @@ import RenderModel from "../components/RenderModel";
 import Astronaut from "../components/models/Little_mrastronaut";
 import AboutDetail from "../components/about";
 
-export default function Home() {
+
+function Particle({ delay, x, size }) {
   return (
+    <span
+      className="particle"
+      style={{
+        left: `${x}%`,
+        width: size,
+        height: size,
+        animationDelay: `${delay}s`,
+        animationDuration: `${8 + Math.random() * 12}s`,
+      }}
+    />
+  );
+}
+
+function CursorGlow() {
+  const ref = useRef(null);
+  useEffect(() => {
+    const move = (e) => {
+      if (!ref.current) return;
+      ref.current.style.transform = `translate(${e.clientX - 200}px, ${e.clientY - 200}px)`;
+    };
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+  return <div ref={ref} className="cursor-glow" />;
+}
+
+
+const particles = Array.from({ length: 28 }, () => ({
+  delay: Math.random() * 6,
+  x: Math.random() * 100,
+  size: Math.random() * 3 + 1,
+}));
+
+export default function Home() {
+    const [ready, setReady] = useState(false);
+  const handleDone = useCallback(() => setReady(true), []);
+  return (
+     <>
+      <style>{`
+        :root {
+          --space: #000814;
+          --accent: #7dd3fc;
+          --accent2: #818cf8;
+          --glow: rgba(125,211,252,0.18);
+        }
+
+        .cursor-glow {
+          position: fixed; top: 0; left: 0;
+          width: 400px; height: 400px; border-radius: 50%;
+          background: radial-gradient(circle, rgba(125,211,252,0.12) 0%, transparent 70%);
+          pointer-events: none;
+          /* z-index 1 — below navbar (50) and navigation (40) */
+          z-index: 1;
+          transition: transform 0.12s ease-out; will-change: transform;
+        }
+
+        .particle {
+          position: fixed; border-radius: 50%;
+          background: var(--accent); opacity: 0;
+          animation: drift linear infinite;
+          pointer-events: none;
+          z-index: 0; /* below everything interactive */
+          box-shadow: 0 0 6px var(--accent);
+        }
+        @keyframes drift {
+          0%   { transform: translateY(110vh) scale(0); opacity: 0; }
+          10%  { opacity: 0.6; }
+          90%  { opacity: 0.4; }
+          100% { transform: translateY(-10vh) scale(1.4); opacity: 0; }
+        }
+
+        .scan-line {
+          position: fixed; top: -2px; left: 0; right: 0; height: 2px;
+          background: linear-gradient(90deg, transparent, var(--accent), transparent);
+          animation: scan 6s linear infinite;
+          pointer-events: none;
+          z-index: 2; /* above particles, below everything else */
+          opacity: 0.35;
+        }
+        @keyframes scan { to { top: 100vh; } }
+
+        
+        .h-rule {
+          width: 0; height: 1px;
+          background: linear-gradient(90deg, var(--accent), transparent);
+          transition: width 1.2s cubic-bezier(.22,1,.36,1) 0.7s;
+          pointer-events: none;
+        }
+        .page-ready .h-rule { width: 100%; }
+      `}</style>
+  <main className={`flex min-h-screen flex-col items-center justify-between relative overflow-x-hidden ${ready ? "page-ready" : ""}`}>
+
     <div className="relative min-h-screen w-screen overflow-x-hidden">
-      
+              {/* Decorative only — pointer-events none, low z */}
+        <CursorGlow />
+        {particles.map((p, i) => <Particle key={i} {...p} />)}
+        <div className="scan-line" />
+
       {/* 🔵 Fixed background layer */}
       <div className="fixed inset-0 z-[-20]">
         <Starsbg />
@@ -53,7 +153,8 @@ export default function Home() {
         <Footer />
       </div>
     </div>
-
+  </main>
+  </>
   );
 }
 

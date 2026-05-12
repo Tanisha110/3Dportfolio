@@ -1,7 +1,7 @@
 'use client'
-import React from "react";
+import React, { useState } from "react";
 import clsx from "clsx";
-import Image from "next/image";
+
 const ItemLayout = ({ children, className }) => {
   return (
     <div
@@ -15,11 +15,22 @@ const ItemLayout = ({ children, className }) => {
   );
 };
 
+const experience = [
+  { role: "Head — Digital DnC", org: "IGNUS 2026", period: "Dec 2025 – Feb 2026", skills: ["Graphic Design", "Figma", "Adobe Illustrator"] },
+  { role: "Head — Digital DnC", org: "Prometeo 2026, IIT Jodhpur", period: "Nov 2025 – Feb 2026", skills: ["Graphic Design", "Adobe Illustrator","Figma"] },
+  { role: "Social Media Manager", org: "Frame-X, IIT Jodhpur", period: "Aug 2024 – Jul 2025", skills: ["Social Media", "Content Strategy","Graphic Design", "Figma", "Video Editing","Da Vinci resolve", "Adobe premiere pro"] },
+  { role: "Core Member", org: "Society of Alumni Affairs, IIT Jodhpur", period: "Aug 2024 – Apr 2025", skills: ["Community Management"] },
+  { role: "Assistant Head Media", org: "IGNUS 2025", period: "Dec 2024 – Feb 2025", skills: ["Social Media", "Video Editing","Da Vinci resolve", "Adobe premiere pro"] },
+];
+
 const AboutDetails = () => {
+  const [activeExp, setActiveExp] = useState(null);
+
   return (
     <section className="py-20 w-full">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 w-full">
-        {/* About Me */}
+
+        {/* About Me — unchanged */}
         <ItemLayout className="md:col-span-8 md:row-span-2 flex flex-col items-start space-y-4">
           <h2 className="text-4xl font-bold text-left w-full capitalize">
             About Me
@@ -31,19 +42,19 @@ const AboutDetails = () => {
               className="w-32 h-32 rounded-full object-cover"
             />
             <p className="font-light text-left text-muted">
-              Hey, I’m an explorer — not of galaxies (yet), but of code,
+              Hey, I'm an explorer — not of galaxies (yet), but of code,
               circuits, and creativity. Currently navigating my second year in
-              Electrical Engineering, I’ve charted paths through web
+              Electrical Engineering, I've charted paths through web
               development, launched into app development, and am now orbiting
               the exciting world of machine learning. Like any good space
               mission, I believe in curiosity, collaboration, and building
-              things that make a difference. If you’re up for creating something
-              stellar, I’d love to connect.
+              things that make a difference. If you're up for creating something
+              stellar, I'd love to connect.
             </p>
           </div>
         </ItemLayout>
 
-        {/* Education */}
+        {/* Education — unchanged */}
         <ItemLayout className="md:col-span-4 flex flex-col items-start space-y-4">
           <h2 className="text-3xl text-left w-full font-semibold capitalize">
             Education
@@ -55,14 +66,15 @@ const AboutDetails = () => {
           </p>
         </ItemLayout>
 
-        {/* Code with Purpose */}
+        {/* Code with Purpose — unchanged */}
         <ItemLayout className="md:col-span-4">
           <h2 className="text-xl text-left w-full font-semibold capitalize">
             Code with purpose.
           </h2>
         </ItemLayout>
 
-        {/* GitHub Languages */}
+        
+        {/* GitHub Languages — unchanged */}
         <ItemLayout className="md:col-span-4 !p-0">
           <img
             className="w-full h-auto"
@@ -72,7 +84,7 @@ const AboutDetails = () => {
           />
         </ItemLayout>
 
-        {/* GitHub Stats */}
+        {/* GitHub Stats — unchanged */}
         <ItemLayout className="md:col-span-8 !p-0">
           <img
             className="w-full h-auto"
@@ -82,7 +94,7 @@ const AboutDetails = () => {
           />
         </ItemLayout>
 
-        {/* Technical Skills */}
+        {/* Technical Skills — unchanged */}
         <ItemLayout className="md:col-span-8 flex flex-col items-start space-y-4">
           <h2 className="text-4xl font-bold text-left capitalize">
             Technical Skills
@@ -95,7 +107,7 @@ const AboutDetails = () => {
           />
         </ItemLayout>
 
-        {/* Non-Technical Skills */}
+        {/* Non-Technical Skills — unchanged */}
         <ItemLayout className="md:col-span-4 flex flex-col text-left items-start space-y-4">
           <h2 className="text-4xl font-semibold">Non-Technical Skills</h2>
           <p className="font-light text-xl text-muted">
@@ -103,7 +115,60 @@ const AboutDetails = () => {
             - DaVinci Resolve <br />
             - Graphic Design
           </p>
-        </ ItemLayout>
+        </ItemLayout>
+{/* ── Experience — new section ── */}
+        <ItemLayout className="md:col-span-12 flex flex-col items-start space-y-6">
+          <h2 className="text-4xl font-bold text-left w-full capitalize">
+            Position of responsibilities
+          </h2>
+          <div className="w-full divide-y divide-white/10">
+            {experience.map((item, i) => (
+              <div
+                key={i}
+                className="flex flex-col sm:flex-row sm:items-center gap-2 py-4 cursor-pointer group"
+                onClick={() => setActiveExp(activeExp === i ? null : i)}
+              >
+                {/* Dot */}
+                <div
+                  className="w-2 h-2 rounded-full flex-shrink-0 mt-1 sm:mt-0 transition-all duration-200"
+                  style={{
+                    background: activeExp === i ? "#7dd3fc" : "#7573a5",
+                    boxShadow: activeExp === i ? "0 0 8px #7dd3fc" : "0 0 4px #7573a5",
+                  }}
+                />
+                <div className="flex-1 sm:ml-4">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1">
+                    <span className="font-semibold text-base text-white/90 group-hover:text-white transition-colors">
+                      {item.role}
+                    </span>
+                    <span className="text-xs font-mono text-white/35">{item.period}</span>
+                  </div>
+                  <span className="text-sm text-[#7573a5]">{item.org}</span>
+
+                  {/* Expanded skill tags */}
+                  {activeExp === i && (
+                    <div className="flex flex-wrap gap-2 mt-3">
+                      {item.skills.map((s) => (
+                        <span
+                          key={s}
+                          className="text-xs px-3 py-1 rounded-full font-mono"
+                          style={{
+                            background: "rgba(117,115,165,0.18)",
+                            border: "1px solid rgba(117,115,165,0.35)",
+                            color: "#b0aed4",
+                          }}
+                        >
+                          {s}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+        </ItemLayout>
+
       </div>
     </section>
   );

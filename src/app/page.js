@@ -46,17 +46,22 @@ function CursorGlow() {
 }
 
 function IntroOverlay({ onDone }) {
-  const [phase, setPhase] = useState("bars");
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase("flash"), 1400);
-    const t2 = setTimeout(() => { setPhase("gone"); onDone(); }, 1900);
-    return () => { clearTimeout(t1); clearTimeout(t2); };
+    const t = setTimeout(() => {
+      onDone();
+    }, 1400);
+
+    return () => clearTimeout(t);
   }, [onDone]);
-  if (phase === "gone") return null;
+
   return (
-    <div className={`intro-overlay ${phase === "flash" ? "flash" : ""}`}>
+    <div className="intro-overlay">
       {[0, 1, 2, 3, 4].map((i) => (
-        <div key={i} className="intro-bar" style={{ animationDelay: `${i * 0.08}s` }} />
+        <div
+          key={i}
+          className="intro-bar"
+          style={{ animationDelay: `${i * 0.08}s` }}
+        />
       ))}
     </div>
   );
@@ -122,7 +127,7 @@ export default function Home() {
           z-index: 9999; pointer-events: none;
           transition: opacity 0.3s ease;
         }
-        .intro-overlay.flash { background: white; opacity: 0.9; }
+      
         .intro-bar {
           position: absolute; left: 0; right: 0; height: 20%;
           background: #000814; transform-origin: top center;

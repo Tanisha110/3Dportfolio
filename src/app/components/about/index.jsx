@@ -16,8 +16,8 @@ const ItemLayout = ({ children, className }) => {
 };
 
 const experience = [
-  { role: "Head — Digital DnC", org: "IGNUS 2026", period: "Dec 2025 – Feb 2026", skills: ["Graphic Design", "Figma", "Adobe Illustrator"] },
-  { role: "Head — Digital DnC", org: "Prometeo 2026, IIT Jodhpur", period: "Nov 2025 – Feb 2026", skills: ["Graphic Design", "Adobe Illustrator","Figma"] },
+  { role: "Head — Digital Design", org: "IGNUS 2026", period: "Dec 2025 – Feb 2026", skills: ["Graphic Design", "Figma", "Adobe Illustrator"] },
+  { role: "Head — Digital Design", org: "Prometeo 2026, IIT Jodhpur", period: "Nov 2025 – Feb 2026", skills: ["Graphic Design", "Adobe Illustrator","Figma"] },
   { role: "Social Media Manager", org: "Frame-X, IIT Jodhpur", period: "Aug 2024 – Jul 2025", skills: ["Social Media", "Content Strategy","Graphic Design", "Figma", "Video Editing","Da Vinci resolve", "Adobe premiere pro"] },
   { role: "Core Member", org: "Society of Alumni Affairs, IIT Jodhpur", period: "Aug 2024 – Apr 2025", skills: ["Community Management"] },
   { role: "Assistant Head Media", org: "IGNUS 2025", period: "Dec 2024 – Feb 2025", skills: ["Social Media", "Video Editing","Da Vinci resolve", "Adobe premiere pro"] },
@@ -42,14 +42,14 @@ const AboutDetails = () => {
               className="w-32 h-32 rounded-full object-cover"
             />
             <p className="font-light text-left text-muted">
-              Hey, I'm an explorer — not of galaxies (yet), but of code,
+              Hey, I&apos;m an explorer — not of galaxies (yet), but of code,
               circuits, and creativity. Currently navigating my second year in
-              Electrical Engineering, I've charted paths through web
+              Electrical Engineering, I&apos;ve charted paths through web
               development, launched into app development, and am now orbiting
               the exciting world of machine learning. Like any good space
               mission, I believe in curiosity, collaboration, and building
-              things that make a difference. If you're up for creating something
-              stellar, I'd love to connect.
+              things that make a difference. If you&apos;re up for creating something
+              stellar, I&apos;d love to connect.
             </p>
           </div>
         </ItemLayout>

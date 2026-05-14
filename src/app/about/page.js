@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useRef, useState, useCallback } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import pkalast from "../../../public/background/pkalast.png";
 import NavBar from "../components/navigation/Navbar";
 import Footer from "../components/navigation/Footer";
@@ -39,7 +40,6 @@ function CursorGlow() {
   return <div ref={ref} className="cursor-glow" />;
 }
 
-
 const particles = Array.from({ length: 28 }, () => ({
   delay: Math.random() * 6,
   x: Math.random() * 100,
@@ -47,10 +47,25 @@ const particles = Array.from({ length: 28 }, () => ({
 }));
 
 export default function Home() {
-    const [ready, setReady] = useState(false);
+  const [ready, setReady] = useState(false);
   const handleDone = useCallback(() => setReady(true), []);
+
+  // Ref on the outermost scrollable container
+  const containerRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
+  });
+
+  // Model animates: slides right + rotates + fades slightly
+  const modelX        = useTransform(scrollYProgress, [0, 0.55], ["0%",  "42%"]);
+  const modelRotateY  = useTransform(scrollYProgress, [0, 0.55], [0,     28]);
+  const modelOpacity  = useTransform(scrollYProgress, [0, 0.45], [1,     0.65]);
+  const modelScale    = useTransform(scrollYProgress, [0, 0.55], [1,     0.88]);
+
   return (
-     <>
+    <>
       <style>{`
         :root {
           --space: #000814;
@@ -64,7 +79,6 @@ export default function Home() {
           width: 400px; height: 400px; border-radius: 50%;
           background: radial-gradient(circle, rgba(125,211,252,0.12) 0%, transparent 70%);
           pointer-events: none;
-          /* z-index 1 — below navbar (50) and navigation (40) */
           z-index: 1;
           transition: transform 0.12s ease-out; will-change: transform;
         }
@@ -74,7 +88,7 @@ export default function Home() {
           background: var(--accent); opacity: 0;
           animation: drift linear infinite;
           pointer-events: none;
-          z-index: 0; /* below everything interactive */
+          z-index: 0;
           box-shadow: 0 0 6px var(--accent);
         }
         @keyframes drift {
@@ -89,12 +103,11 @@ export default function Home() {
           background: linear-gradient(90deg, transparent, var(--accent), transparent);
           animation: scan 6s linear infinite;
           pointer-events: none;
-          z-index: 2; /* above particles, below everything else */
+          z-index: 2;
           opacity: 0.35;
         }
         @keyframes scan { to { top: 100vh; } }
 
-        
         .h-rule {
           width: 0; height: 1px;
           background: linear-gradient(90deg, var(--accent), transparent);
@@ -102,60 +115,91 @@ export default function Home() {
           pointer-events: none;
         }
         .page-ready .h-rule { width: 100%; }
+
+        /* Give the 3D model wrapper perspective so rotateY looks 3D */
+        .model-perspective {
+          perspective: 1200px;
+          perspective-origin: center center;
+        }
       `}</style>
-  <main className={`flex min-h-screen flex-col items-center justify-between relative overflow-x-hidden ${ready ? "page-ready" : ""}`}>
 
-    <div className="relative min-h-screen w-screen overflow-x-hidden">
-              {/* Decorative only — pointer-events none, low z */}
-        <CursorGlow />
-        {particles.map((p, i) => <Particle key={i} {...p} />)}
-        <div className="scan-line" />
+      <main
+        ref={containerRef}
+        className={`flex min-h-screen flex-col items-center justify-between relative overflow-x-hidden ${ready ? "page-ready" : ""}`}
+      >
+        <div className="relative min-h-screen w-screen overflow-x-hidden">
+          {/* Decorative — pointer-events none, low z */}
+          <CursorGlow />
+          {particles.map((p, i) => <Particle key={i} {...p} />)}
+          <div className="scan-line" />
 
-      {/* 🔵 Fixed background layer */}
-      <div className="fixed inset-0 z-[-20]">
-        <Starsbg />
-        <Image
-          src={pkalast}
-          alt="background-image"
-          layout="fill"
-          className="object-cover object-center"
-        />
-      </div>
+          {/* Fixed background */}
+          <div className="fixed inset-0 z-[-20]">
+            <Starsbg />
+            <Image
+              src={pkalast}
+              alt="background-image"
+              layout="fill"
+              className="object-cover object-center"
+            />
+          </div>
 
-      {/* 🔵 Scrollable Content */}
-      <div className="relative z-10">
-        <NavBar />
-        <div className="relative w-full h-screen">
-  {/* Fullscreen 3D Model */}
-  <div className="absolute inset-0">
-    <RenderModel>
-      <Astronaut />
-    </RenderModel>
-  </div>
+          {/* Scrollable content */}
+          <div className="relative z-10">
+            <NavBar />
 
-  {/* Slightly lower Text Overlay */}
-  <div className="absolute w-full top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-0 text-center px-4">
-    <h1 className="font-bold text-5xl md:text-8xl text-[#7573a5]">
-      Tanisha Sonkar
-    </h1>
-    <p className="mt-4 font-light text-foreground text-lg max-w-2xl mx-auto">
-      An enthusiastic Electrical Engineering sophomore with a passion for software development, actively expanding my skills in web and app development.
-    </p>
+            <div className="relative w-full h-screen">
 
-    {/* About Section with less top margin */}
-    <div className="mt-6 md:mt-10 w-full">
-      <AboutDetail />
-    </div>
-  </div>
-</div>
+              {/* ── 3D Model — scroll-animated ── */}
+              <div className="absolute inset-0 model-perspective">
+                <motion.div
+                  className="w-full h-full"
+                  style={{
+                    x: modelX,
+                    rotateY: modelRotateY,
+                    opacity: modelOpacity,
+                    scale: modelScale,
+                    transformStyle: "preserve-3d",
+                  }}
+                >
+                  <RenderModel>
+                    <Astronaut />
+                  </RenderModel>
+                </motion.div>
+              </div>
 
+              {/* ── Text overlay ── */}
+              <div className="absolute w-full top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-0 text-center px-4">
+                <motion.h1
+                  className="font-bold text-5xl md:text-8xl text-[#7573a5]"
+                  initial={{ opacity: 0, y: 24 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  Tanisha Sonkar
+                </motion.h1>
 
-        <Footer />
-      </div>
-    </div>
-  </main>
-  </>
+                <motion.p
+                  className="mt-4 font-light text-foreground text-lg max-w-2xl mx-auto"
+                  initial={{ opacity: 0, y: 16 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.9, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
+                >
+                  An enthusiastic Electrical Engineering sophomore with a passion for
+                  software development, actively expanding my skills in web and app development.
+                </motion.p>
+
+                {/* About section */}
+                <div className="mt-6 md:mt-10 w-full">
+                  <AboutDetail />
+                </div>
+              </div>
+            </div>
+
+            <Footer />
+          </div>
+        </div>
+      </main>
+    </>
   );
 }
-
-  

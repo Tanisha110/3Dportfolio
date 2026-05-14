@@ -1,26 +1,40 @@
-'use client'
-import React, { useState } from "react";
-import clsx from "clsx";
+/*hekekoj hehehe 
 
-const ItemLayout = ({ children, className }) => {
-  return (
-    <div
-      className={clsx(
-        "custom-bg p-8 rounded-xl flex items-center justify-center",
-        className
-      )}
-    >
-      {children}
-    </div>
-  );
-};
 
 const experience = [
-  { role: "Head — Digital Design", org: "IGNUS 2026", period: "Dec 2025 – Feb 2026", skills: ["Graphic Design", "Figma", "Adobe Illustrator"] },
-  { role: "Head — Digital Design", org: "Prometeo 2026, IIT Jodhpur", period: "Nov 2025 – Feb 2026", skills: ["Graphic Design", "Adobe Illustrator","Figma"] },
-  { role: "Social Media Manager", org: "Frame-X, IIT Jodhpur", period: "Aug 2024 – Jul 2025", skills: ["Social Media", "Content Strategy","Graphic Design", "Figma", "Video Editing","Da Vinci resolve", "Adobe premiere pro"] },
-  { role: "Core Member", org: "Society of Alumni Affairs, IIT Jodhpur", period: "Aug 2024 – Apr 2025", skills: ["Community Management"] },
-  { role: "Assistant Head Media", org: "IGNUS 2025", period: "Dec 2024 – Feb 2025", skills: ["Social Media", "Video Editing","Da Vinci resolve", "Adobe premiere pro"] },
+  {
+    role: "Head — Digital Design",
+    org: "IGNUS 2026",
+    period: "Dec 2025 – Feb 2026",
+    skills: ["Graphic Design", "Figma", "Adobe Illustrator"],
+  },
+  {
+    role: "Head — Digital Design",
+    org: "Prometeo 2026, IIT Jodhpur",
+   nopes
+    skills: ["Graphic Design", "Adobe Illustrator", "Figma"],
+  },
+  {
+    role: "Social Media Manager",
+    org: "Frame-X, IIT Jodhpur",
+    period: "Aug 2024 – Jul 2025",
+    skills: [
+      "Social Media", "Content Strategy", "Graphic Design",
+      "Figma", "Video Editing", "Da Vinci Resolve", "Adobe Premiere Pro",
+    ],
+  },
+  {
+    role: "Core Member",
+    org: "Society of Alumni Affairs, IIT Jodhpur",
+    period: "Aug 2024 – Apr 2025",
+    skills: ["Community Management"],
+  },
+  {
+    role: "Assistant Head Media",
+    org: "IGNUS 2025",
+    period: "Dec 2024 – Feb 2025",
+    skills: ["Social Media", "Video Editing", "Da Vinci Resolve", "Adobe Premiere Pro"],
+  },
 ];
 
 const AboutDetails = () => {
@@ -30,11 +44,9 @@ const AboutDetails = () => {
     <section className="py-20 w-full">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-8 w-full">
 
-        {/* About Me — unchanged */}
-        <ItemLayout className="md:col-span-8 md:row-span-2 flex flex-col items-start space-y-4">
-          <h2 className="text-4xl font-bold text-left w-full capitalize">
-            About Me
-          </h2>
+        {/* About Me */}
+        <ItemLayout index={0} className="md:col-span-8 md:row-span-2 flex flex-col items-start space-y-4">
+          <h2 className="text-4xl font-bold text-left w-full capitalize">About Me</h2>
           <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-4">
             <img
               src="/background/mmee.png"
@@ -54,11 +66,9 @@ const AboutDetails = () => {
           </div>
         </ItemLayout>
 
-        {/* Education — unchanged */}
-        <ItemLayout className="md:col-span-4 flex flex-col items-start space-y-4">
-          <h2 className="text-3xl text-left w-full font-semibold capitalize">
-            Education
-          </h2>
+        {/* Education */}
+        <ItemLayout index={1} className="md:col-span-4 flex flex-col items-start space-y-4">
+          <h2 className="text-3xl text-left w-full font-semibold capitalize">Education</h2>
           <p className="font-light text-left w-full text-muted">
             - Indian Institute of Technology Jodhpur <br />
             - Electrical Engineering Major <br />
@@ -66,16 +76,15 @@ const AboutDetails = () => {
           </p>
         </ItemLayout>
 
-        {/* Code with Purpose — unchanged */}
-        <ItemLayout className="md:col-span-4">
+        {/* Code with Purpose */}
+        <ItemLayout index={2} className="md:col-span-4">
           <h2 className="text-xl text-left w-full font-semibold capitalize">
             Code with purpose.
           </h2>
         </ItemLayout>
 
-        
-        {/* GitHub Languages — unchanged */}
-        <ItemLayout className="md:col-span-4 !p-0">
+        {/* GitHub Languages */}
+        <ItemLayout index={3} className="md:col-span-4 !p-0">
           <img
             className="w-full h-auto"
             src="https://github-readme-stats.vercel.app/api/top-langs/?username=Tanisha110&theme=transparent&hide_border=true&title_color=7573a5&hide=prs,issues&text_color=eeeeee&icon_color=7573a5&text_bold=false"
@@ -84,8 +93,8 @@ const AboutDetails = () => {
           />
         </ItemLayout>
 
-        {/* GitHub Stats — unchanged */}
-        <ItemLayout className="md:col-span-8 !p-0">
+        {/* GitHub Stats */}
+        <ItemLayout index={4} className="md:col-span-8 !p-0">
           <img
             className="w-full h-auto"
             src="https://github-readme-stats.vercel.app/api?username=Tanisha110&theme=transparent&hide_border=true&title_color=7573a5&hide=prs,issues&text_color=eeeeee&icon_color=7573a5&text_bold=false"
@@ -94,11 +103,9 @@ const AboutDetails = () => {
           />
         </ItemLayout>
 
-        {/* Technical Skills — unchanged */}
-        <ItemLayout className="md:col-span-8 flex flex-col items-start space-y-4">
-          <h2 className="text-4xl font-bold text-left capitalize">
-            Technical Skills
-          </h2>
+        {/* Technical Skills */}
+        <ItemLayout index={5} className="md:col-span-8 flex flex-col items-start space-y-4">
+          <h2 className="text-4xl font-bold text-left capitalize">Technical Skills</h2>
           <img
             className="w-full h-auto"
             src="https://skillicons.dev/icons?i=js,html,css,anaconda,bootstrap,c,cpp,java,matlab,nextjs,nodejs,py,react,sklearn,tailwind,threejs,vscode,git,github,pandas,numpy"
@@ -107,8 +114,8 @@ const AboutDetails = () => {
           />
         </ItemLayout>
 
-        {/* Non-Technical Skills — unchanged */}
-        <ItemLayout className="md:col-span-4 flex flex-col text-left items-start space-y-4">
+        {/* Non-Technical Skills */}
+        <ItemLayout index={6} className="md:col-span-4 flex flex-col text-left items-start space-y-4">
           <h2 className="text-4xl font-semibold">Non-Technical Skills</h2>
           <p className="font-light text-xl text-muted">
             - Social Media Management <br />
@@ -116,19 +123,27 @@ const AboutDetails = () => {
             - Graphic Design
           </p>
         </ItemLayout>
-{/* ── Experience — new section ── */}
-        <ItemLayout className="md:col-span-12 flex flex-col items-start space-y-6">
+
+        {/* Position of Responsibilities */}
+        <ItemLayout index={7} className="md:col-span-12 flex flex-col items-start space-y-6">
           <h2 className="text-4xl font-bold text-left w-full capitalize">
             Position of responsibilities
           </h2>
           <div className="w-full divide-y divide-white/10">
             {experience.map((item, i) => (
-              <div
+              <motion.div
                 key={i}
                 className="flex flex-col sm:flex-row sm:items-center gap-2 py-4 cursor-pointer group"
                 onClick={() => setActiveExp(activeExp === i ? null : i)}
+                initial={{ opacity: 0, x: -60 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{
+                  duration: 0.5,
+                  ease: [0.22, 1, 0.36, 1],
+                  delay: i * 0.07,
+                }}
               >
-                {/* Dot */}
                 <div
                   className="w-2 h-2 rounded-full flex-shrink-0 mt-1 sm:mt-0 transition-all duration-200"
                   style={{
@@ -145,9 +160,13 @@ const AboutDetails = () => {
                   </div>
                   <span className="text-sm text-[#7573a5]">{item.org}</span>
 
-                  {/* Expanded skill tags */}
                   {activeExp === i && (
-                    <div className="flex flex-wrap gap-2 mt-3">
+                    <motion.div
+                      className="flex flex-wrap gap-2 mt-3"
+                      initial={{ opacity: 0, y: -8 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.28, ease: "easeOut" }}
+                    >
                       {item.skills.map((s) => (
                         <span
                           key={s}
@@ -161,10 +180,10 @@ const AboutDetails = () => {
                           {s}
                         </span>
                       ))}
-                    </div>
+                    </motion.div>
                   )}
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </ItemLayout>
